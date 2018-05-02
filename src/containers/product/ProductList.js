@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/index';
+import { fetchProducts } from '../../actions/ProductAction';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 
 class ProductList extends Component {
@@ -46,9 +47,9 @@ class ProductList extends Component {
           </thead>
           <tbody>{this.renderProducts()}</tbody>
         </table>
-        <button type="button" className="btn btn-outline-success">
+        <Link to="/products/new" className="btn btn-outline-success">
           Add new product
-        </button>
+        </Link>
       </div>
     );
   }

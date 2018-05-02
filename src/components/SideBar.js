@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class SideBar extends Component {
   render() {
@@ -8,22 +8,22 @@ class SideBar extends Component {
         <div className="sidebar-sticky">
           <ul className="nav flex-column">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">
-                <span data-feather="home" />
-                Dashboard <span className="sr-only">(current)</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/products">
-                <span data-feather="file" />
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/products"
+              >
                 Products
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/companies">
-                <span data-feather="shopping-cart" />
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/companies"
+              >
                 Companies
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
