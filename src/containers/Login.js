@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { createProduct } from '../../actions/productAction';
+import { login } from '../actions/authAction';
 
-class ProductForm extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,38 +24,41 @@ class ProductForm extends Component {
     );
   }
 
-  onSubmit(values) {
-    this.props.createProduct(values, this.props.history);
+  onSubmit({ email, password }) {
+    this.props.login({ email, password }, this.props.history);
   }
 
   render() {
+    const { errorMessage } = this.props;
     const { handleSubmit } = this.props;
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
-        <h2>Add new Product</h2>
-        <Field
-          label="Title For Product"
-          name="title"
-          component={this.renderField}
-        />
         <div className="form-group">
-          <label>Description for product</label>
           <Field
-            name="description"
-            component="textarea"
+            label="Email adress"
+            type="email"
+            component={this.renderField}
+            name="email"
             className="form-control"
-            id="description"
-            rows="3"
           />
         </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
+        <div className="form-group">
+          <Field
+            label="Password"
+            type="password"
+            component={this.renderField}
+            name="password"
+            className="form-control"
+          />
+        </div>
+
+        <button className="btn btn-primary">Submit</button>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       </form>
     );
   }
 }
 
-export default reduxForm({ form: 'ProductNewForm' })(
-  connect(null, { createProduct })(ProductForm)
+export default reduxForm({ form: 'loginForm' })(
+  connect(null, { login })(Login)
 );

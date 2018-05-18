@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchProducts } from '../../actions/ProductAction';
+import { fetchProducts } from '../../actions/productAction';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 

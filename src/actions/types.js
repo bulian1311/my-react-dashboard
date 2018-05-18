@@ -1,5 +1,11 @@
-export const FETCH_PRODUCT = 'fetch_product';
+export const FETCH_PRODUCT = 'FETCH_PRODUCT';
+export const FETCH_PRODUCTS = 'FETCH_PRODUCTS';
+export const CREATE_PRODUCT = 'CREATE_PRODUCT';
 
-export const FETCH_PRODUCTS = 'fetch_products';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-export const CREATE_PRODUCT = 'create_product';
+export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';

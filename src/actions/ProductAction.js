@@ -14,10 +14,9 @@ export const fetchProducts = () => async dispatch => {
 };
 
 export const createProduct = (values, history) => async dispatch => {
-  console.log(values);
   const res = await axios.post('/products', { ...values });
 
   history.push('/products');
 
-  return dispatch({ type: FETCH_PRODUCTS, payload: {} });
+  return dispatch({ type: FETCH_PRODUCTS, payload: res.data });
 };
