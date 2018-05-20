@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
-import Login from './Login';
-import NavBar from '../containers/NavBar';
-import SideBar from '../components/SideBar';
-import Main from '../components/Main';
+import Login from './main/Login';
+import Dashboard from './main/Dashboard';
 
 class App extends Component {
   render() {
-    if (this.props.isAuthenticated) {
-      return (
-        <BrowserRouter>
-          <div>
-            <NavBar />
-            <div className="container-fluid">
-              <div className="row">
-                <SideBar />
-                <Main />
-              </div>
-            </div>
-          </div>
-        </BrowserRouter>
-      );
-    } else {
-      return <Login />;
-    }
+    return (
+      <BrowserRouter>
+        <Switch>
+          <Route
+            path="/"
+            render={() =>
+              !this.props.isAuthenticated ? (
+                <Switch>
+                  <Route exact path="/login" component={Login} />
+                  <Redirect to="/login" />
+                </Switch>
+              ) : (
+                <Route component={Dashboard} />
+              )
+            }
+          />
+        </Switch>
+      </BrowserRouter>
+    );
   }
 }
 

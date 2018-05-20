@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../actions/authAction';
+import { logout } from '../../actions/authAction';
 import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
@@ -18,9 +18,9 @@ class NavBar extends Component {
         />
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap">
-            <a className="nav-link" onClick={this.props.logout}>
+            <Link to="/login" className="nav-link" onClick={this.props.logout}>
               Logout
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
